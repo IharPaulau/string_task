@@ -1,9 +1,8 @@
 package task2.services;
 
-import java.util.List;
+import task2.models.Composite;
+
 
 public interface Delimiter {
-
-    List<String> matchFinder(String regexByPoint, String text);
-
+    Component matchFinder(Composite composite, String regex, String text);
 }

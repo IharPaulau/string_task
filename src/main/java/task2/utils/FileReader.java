@@ -1,4 +1,4 @@
-package task2.services.textreader;
+package task2.utils;
 
 import org.apache.commons.io.FileUtils;
 

@@ -1,5 +1,8 @@
 package task2.services.impl;
 
+import task2.models.Composite;
+import task2.models.Word;
+import task2.services.Component;
 import task2.services.Delimiter;
 
 import java.util.ArrayList;
@@ -8,19 +11,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DelimiterImpl implements Delimiter {
+    public DelimiterImpl() {
+    }
 
-    public List<String> matchFinder(String regexByPoint, String text) {
-        List<String> list;
-        list = new ArrayList<>();
-        Matcher matcher = Pattern.compile(regexByPoint).matcher(text);
-        while (matcher.find()) {
+    public Component matchFinder(Composite composite, String regex, String inputText) {
+        Matcher matcher = Pattern.compile(regex).matcher(inputText);
 
-            list.add(matcher.group());
-
+        while(matcher.find()) {
+            String outputText = matcher.group();
+            composite.getComponentList().add(new Word(outputText));
         }
-        System.out.println(list.size());
-        System.out.println();
-        System.out.println(list);
-        return list;
+
+        return null;
     }
 }
