@@ -18,10 +18,5 @@ public class Element implements Component {
         System.out.print(getStr());
     }
 
-    @Override
-    public String wtite() {
-        return getStr();
-    }
-
 
 }

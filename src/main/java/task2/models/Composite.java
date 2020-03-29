@@ -43,10 +43,9 @@ public class Composite implements Component {
     }
 
     @Override
-    public String wtite() {
-        for (Component component : componentList) {
-            component.wtite();
-        }
-    return null;
+    public String getStr() {
+        return null;
     }
+
+
 }

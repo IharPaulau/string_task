@@ -8,10 +8,10 @@ public class WordDeleter {
 
     public void deleter(Composite allText){
 
-//        Composite e = (Composite) allText.getComponentList().get(0);
-//        e.getComponentList().get(0).print();
+        Composite e = (Composite) allText.getComponentList().get(0);
 
-        allText.getComponentList().get(0);
+
+       e.getComponentList().size();
 
 
     }
