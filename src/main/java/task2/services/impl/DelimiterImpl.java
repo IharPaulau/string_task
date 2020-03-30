@@ -1,20 +1,22 @@
-package task2.services;
+package task2.services.impl;
 
 
 import task2.models.Composite;
 import task2.models.Element;
 import task2.services.Component;
+import task2.services.Delimiter;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DelimiterImpl {
+public class DelimiterImpl implements Delimiter {
     private static final String REGEX_BY_WHITESPACE = "\\ |\\s";
     private static final String REGEX_BY_SENTENCE = "(([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+)|([а-яА-Яa-zA-Z0-9-,]+)[\\s]*)+(([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+)|([а-яА-Яa-zA-Z0-9-,]+)[.!?][\\s]*)";
     private static final String REGEX_BY_PUNCTUATION = "[,?!:;]|[.](?![а-яА-Яa-zA-Z])";
     private static final String REGEX_BY_ANY_WORD_WITH_PUNCTUATION = "(((([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+))|([а-яА-Яa-zA-Z0-9-,]+)))+[.?!:]*[\\s]*";
     private static final String REGEX_BY_ANY_WORD = "(((([а-яА-Яa-zA-Z0-9-]+(\\.[а-яА-Яa-zA-Z0-9-]+)+))|([а-яА-Яa-zA-Z0-9-]+)))";
 
+    @Override
     public Component sentenceMatcher(Component allText) {
         Matcher matcher = Pattern.compile(REGEX_BY_SENTENCE).matcher(((Composite) allText).getText());
         while (matcher.find()) {
@@ -24,7 +26,7 @@ public class DelimiterImpl {
         }
         return allText;
     }
-
+    @Override
     public Component wordMatcher(Component sentence, String str) {
         Matcher matcher = Pattern.compile(REGEX_BY_ANY_WORD_WITH_PUNCTUATION).matcher(str);
         while (matcher.find()) {
@@ -32,38 +34,20 @@ public class DelimiterImpl {
             Matcher matcher2 = Pattern.compile(REGEX_BY_PUNCTUATION).matcher(temporarilyStr);
             Matcher spaceMatcher = Pattern.compile(REGEX_BY_WHITESPACE).matcher(temporarilyStr);
             if (matcher2.find()) {
-                parserWord(sentence, temporarilyStr);
-                parserPunctuation(sentence, temporarilyStr);
-                if (spaceMatcher.find()) parserSpace(sentence, temporarilyStr);
+                parser(sentence, temporarilyStr, REGEX_BY_ANY_WORD);
+                parser(sentence, temporarilyStr, REGEX_BY_PUNCTUATION);
+                if (spaceMatcher.find()) parser(sentence, temporarilyStr, REGEX_BY_WHITESPACE);
             } else if (spaceMatcher.find()) {
-                parserWord(sentence, temporarilyStr);
-                parserSpace(sentence, temporarilyStr);
-            } else parserWord(sentence, temporarilyStr);
+                parser(sentence, temporarilyStr, REGEX_BY_ANY_WORD);
+                parser(sentence, temporarilyStr, REGEX_BY_WHITESPACE);
+            } else parser(sentence, temporarilyStr, REGEX_BY_ANY_WORD);
         }
         return sentence;
     }
 
-
-    public Component parserWord(Component sentence, String str) {
-        Matcher matcher = Pattern.compile(REGEX_BY_ANY_WORD).matcher(str);
-        while (matcher.find()) {
-            Component word = new Element(matcher.group());
-            ((Composite) sentence).add(word);
-        }
-        return sentence;
-    }
-
-    public Component parserSpace(Component sentence, String str) {
-        Matcher matcher = Pattern.compile(REGEX_BY_WHITESPACE).matcher(str);
-        while (matcher.find()) {
-            Component word = new Element(matcher.group());
-            ((Composite) sentence).add(word);
-        }
-        return sentence;
-    }
-
-    public Component parserPunctuation(Component sentence, String str) {
-        Matcher matcher = Pattern.compile(REGEX_BY_PUNCTUATION).matcher(str);
+    @Override
+    public Component parser(Component sentence, String str, String regexp) {
+        Matcher matcher = Pattern.compile(regexp).matcher(str);
         while (matcher.find()) {
             Component word = new Element(matcher.group());
             ((Composite) sentence).add(word);

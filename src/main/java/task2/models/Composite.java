@@ -42,10 +42,4 @@ public class Composite implements Component {
         }
     }
 
-    @Override
-    public String getStr() {
-        return null;
-    }
-
-
-}
+   }
