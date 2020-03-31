@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 public class DelimiterImpl implements Delimiter {
     private static final Logger LOGGER = Logger.getLogger(DelimiterImpl.class);
     private static final String REGEX_BY_WHITESPACE = "\\ |\\s";
-    private static final String REGEX_BY_SENTENCE = "(([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+)|([а-яА-Яa-zA-Z0-9-,]+)[\\s]*)+(([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+)|([а-яА-Яa-zA-Z0-9-,]+)[.!?][\\s]*)";
+    private static final String REGEX_BY_SENTENCE = "(([а-яА-Яa-zA-Z0-9-,\"]+(\\.[а-яА-Яa-zA-Z0-9-,\"]+)+)|([а-яА-Яa-zA-Z0-9-,\"]+)[\\s]*)+(([а-яА-Яa-zA-Z0-9-,\"]+(\\.[а-яА-Яa-zA-Z0-9-,\"]+)+)|([а-яА-Яa-zA-Z0-9-,\"]+)[.!?][\\s]*)";
     private static final String REGEX_BY_PUNCTUATION = "[,?!:;]|[.](?![а-яА-Яa-zA-Z])";
-    private static final String REGEX_BY_ANY_WORD_WITH_PUNCTUATION = "(((([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+))|([а-яА-Яa-zA-Z0-9-,]+)))+[.?!:]*[\\s]*";
-    private static final String REGEX_BY_ANY_WORD = "(((([а-яА-Яa-zA-Z0-9-]+(\\.[а-яА-Яa-zA-Z0-9-]+)+))|([а-яА-Яa-zA-Z0-9-]+)))";
+    private static final String REGEX_BY_ANY_WORD_WITH_PUNCTUATION = "(((([а-яА-Яa-zA-Z0-9-,\"]+(\\.[а-яА-Яa-zA-Z0-9-,\"]+)+))|([а-яА-Яa-zA-Z0-9-,\"]+)))+[.?!:]*[\\s]*";
+    private static final String REGEX_BY_ANY_WORD = "(((([а-яА-Яa-zA-Z0-9-\"]+(\\.[а-яА-Яa-zA-Z0-9-\"]+)+))|([а-яА-Яa-zA-Z0-9-\"]+)))";
     private static int sentenceCounter = 0;
 
     @Override
