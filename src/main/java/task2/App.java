@@ -19,7 +19,7 @@ public class App {
 
     public static void main(String[] args) {
         delimiter.sentenceMatcher(allText);
-        allText.print(); // reassembled text elements again
+//        allText.print(); // reassembled text elements again
         wordDeleter.deleter(allText); // delete a word starting with a consonant and eleven letters long
         fileWriter.write(allText); // write to text file after processing
 //                allText.print(); // reassembled text elements again
