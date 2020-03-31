@@ -1,33 +1,39 @@
 package task2.services.impl;
 
 
-import task2.models.Composite;
-import task2.models.Element;
-import task2.services.Component;
+import org.apache.log4j.Logger;
+import task2.models.CompositeTextElements;
+import task2.models.MinTextElement;
+import task2.services.ComponentOfText;
 import task2.services.Delimiter;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DelimiterImpl implements Delimiter {
+    private static final Logger LOGGER = Logger.getLogger(DelimiterImpl.class);
     private static final String REGEX_BY_WHITESPACE = "\\ |\\s";
     private static final String REGEX_BY_SENTENCE = "(([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+)|([а-яА-Яa-zA-Z0-9-,]+)[\\s]*)+(([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+)|([а-яА-Яa-zA-Z0-9-,]+)[.!?][\\s]*)";
     private static final String REGEX_BY_PUNCTUATION = "[,?!:;]|[.](?![а-яА-Яa-zA-Z])";
     private static final String REGEX_BY_ANY_WORD_WITH_PUNCTUATION = "(((([а-яА-Яa-zA-Z0-9-,]+(\\.[а-яА-Яa-zA-Z0-9-,]+)+))|([а-яА-Яa-zA-Z0-9-,]+)))+[.?!:]*[\\s]*";
     private static final String REGEX_BY_ANY_WORD = "(((([а-яА-Яa-zA-Z0-9-]+(\\.[а-яА-Яa-zA-Z0-9-]+)+))|([а-яА-Яa-zA-Z0-9-]+)))";
+    private static int sentenceCounter = 0;
 
     @Override
-    public Component sentenceMatcher(Component allText) {
-        Matcher matcher = Pattern.compile(REGEX_BY_SENTENCE).matcher(((Composite) allText).getText());
+    public ComponentOfText sentenceMatcher(ComponentOfText allText) {
+        Matcher matcher = Pattern.compile(REGEX_BY_SENTENCE).matcher(((CompositeTextElements) allText).getText());
         while (matcher.find()) {
-            Component sentence = new Composite();
+            ComponentOfText sentence = new CompositeTextElements();
             wordMatcher(sentence, matcher.group());
-            ((Composite) allText).add(sentence);
+            ((CompositeTextElements) allText).add(sentence);
+
         }
+        LOGGER.info(String.format("the text was parsed into" + "'%d'" + "sentences",
+                ((CompositeTextElements) allText).getSingleLevelComponent().size()));
         return allText;
     }
+
     @Override
-    public Component wordMatcher(Component sentence, String str) {
+    public ComponentOfText wordMatcher(ComponentOfText sentence, String str) {
         Matcher matcher = Pattern.compile(REGEX_BY_ANY_WORD_WITH_PUNCTUATION).matcher(str);
         while (matcher.find()) {
             String temporarilyStr = matcher.group();
@@ -42,15 +48,18 @@ public class DelimiterImpl implements Delimiter {
                 parser(sentence, temporarilyStr, REGEX_BY_WHITESPACE);
             } else parser(sentence, temporarilyStr, REGEX_BY_ANY_WORD);
         }
+        LOGGER.info(String.format("'%d' sentence was parsed into" + "'%d'" + "elements", sentenceCounter+=1,
+                ((CompositeTextElements) sentence).getSingleLevelComponent().size()));
+
         return sentence;
     }
 
     @Override
-    public Component parser(Component sentence, String str, String regexp) {
+    public ComponentOfText parser(ComponentOfText sentence, String str, String regexp) {
         Matcher matcher = Pattern.compile(regexp).matcher(str);
         while (matcher.find()) {
-            Component word = new Element(matcher.group());
-            ((Composite) sentence).add(word);
+            ComponentOfText word = new MinTextElement(matcher.group());
+            ((CompositeTextElements) sentence).add(word);
         }
         return sentence;
     }

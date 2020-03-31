@@ -1,6 +1,5 @@
 package task2.services;
 
-public interface Component {
+public interface ComponentOfText {
     void print();
-
 }

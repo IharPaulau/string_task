@@ -1,8 +1,7 @@
 package task2;
 
-import org.apache.commons.io.FileUtils;
-import task2.models.Composite;
-import task2.services.Component;
+import task2.models.CompositeTextElements;
+import task2.services.ComponentOfText;
 import task2.services.Delimiter;
 import task2.services.impl.DelimiterImpl;
 import task2.utils.FileReader;
@@ -12,17 +11,17 @@ import task2.utils.WordDeleter;
 public class App {
     private static String fileLocation = "text.txt";
     private static String charFormat = "UTF-8";
+    private static FileReader fileReader = new FileReader();
+    private static ComponentOfText allText = new CompositeTextElements(fileReader.readFile(fileLocation, charFormat));
+    private static Delimiter delimiter = new DelimiterImpl();
+    private static WordDeleter wordDeleter = new WordDeleter();
+    private static FileWriter fileWriter = new FileWriter();
 
     public static void main(String[] args) {
-        FileReader fileReader = new FileReader();
-        Component allText = new Composite(fileReader.readFile(fileLocation, charFormat));
-        Delimiter delimiter = new DelimiterImpl();
         delimiter.sentenceMatcher(allText);
-        allText.print(); // reassembled text elements
-        WordDeleter wordDeleter = new WordDeleter();
-        wordDeleter.deleter(allText); // deleting word - "предложение"
-        allText.print(); // reassembled text elements again
-        FileWriter fileWriter = new FileWriter();
-        fileWriter.write(allText);
+//        allText.print(); // reassembled text elements again
+        wordDeleter.deleter(allText); // delete a word starting with a consonant and eleven letters long
+        fileWriter.write(allText); // write to text file after processing
+        //        allText.print(); // reassembled text elements again
     }
 }

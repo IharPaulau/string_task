@@ -1,12 +1,15 @@
 package task2.models;
 
 
-import task2.services.Component;
+import org.apache.log4j.Logger;
+import task2.services.ComponentOfText;
+import task2.services.impl.DelimiterImpl;
 
-public class Element implements Component {
+public class MinTextElement implements ComponentOfText {
+
     private String str;
 
-    public Element(String str) {
+    public MinTextElement(String str) {
         this.str = str;
     }
 
@@ -16,6 +19,7 @@ public class Element implements Component {
 
     public void print() {
         System.out.print(getStr());
+
     }
 
 
