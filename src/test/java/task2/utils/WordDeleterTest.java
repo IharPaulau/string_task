@@ -31,9 +31,9 @@ public class WordDeleterTest {
         String stringAfterProcessing = "";
         for (int i = 0; i < ((CompositeTextElements) test_allText).getSingleLevelComponent().size(); i++) {
             TextComponent sentence = ((CompositeTextElements) test_allText).getSingleLevelComponent().get(i);
-            List<TextComponent> s = ((CompositeTextElements) sentence).getSingleLevelComponent();
-            for (int j = 0; j < s.size(); j++) {
-                stringAfterProcessing += ((MinTextElement) s.get(j)).getTextElement();
+            List<TextComponent> elements = ((CompositeTextElements) sentence).getSingleLevelComponent();
+            for (int j = 0; j < elements.size(); j++) {
+                stringAfterProcessing += ((MinTextElement) elements.get(j)).getTextElement();
             }
         }
         assertTrue(stringAfterProcessing.equals("первое . второе ."));

@@ -6,3 +6,31 @@
 2020-04-05 15:04:40:003 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'4'sentences
 2020-04-05 15:04:40:010 INFO  WordDeleter:deleter:26 - all words in parsed text starting with a consonant and eleven letters long was deleted
 2020-04-05 15:04:40:014 INFO  FileWriter:write:34 - the text was written to a 'result.txt' file
+2020-04-05 15:09:55:866 INFO  DelimiterImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-05 15:09:55:874 INFO  DelimiterImpl:wordMatcher:51 - '2' sentence was parsed into'27'elements
+2020-04-05 15:09:55:880 INFO  DelimiterImpl:wordMatcher:51 - '3' sentence was parsed into'9'elements
+2020-04-05 15:09:55:882 INFO  DelimiterImpl:wordMatcher:51 - '4' sentence was parsed into'9'elements
+2020-04-05 15:09:55:883 INFO  DelimiterImpl:wordMatcher:51 - '5' sentence was parsed into'2'elements
+2020-04-05 15:09:55:884 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'5'sentences
+2020-04-05 15:09:55:894 INFO  DelimiterImpl:wordMatcher:51 - '6' sentence was parsed into'5'elements
+2020-04-05 15:09:55:897 INFO  DelimiterImpl:wordMatcher:51 - '7' sentence was parsed into'27'elements
+2020-04-05 15:09:55:898 INFO  DelimiterImpl:wordMatcher:51 - '8' sentence was parsed into'9'elements
+2020-04-05 15:09:55:900 INFO  DelimiterImpl:wordMatcher:51 - '9' sentence was parsed into'9'elements
+2020-04-05 15:09:55:901 INFO  DelimiterImpl:wordMatcher:51 - '10' sentence was parsed into'2'elements
+2020-04-05 15:09:55:901 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'5'sentences
+2020-04-05 15:10:09:032 INFO  DelimiterImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-05 15:10:09:043 INFO  DelimiterImpl:wordMatcher:51 - '2' sentence was parsed into'4'elements
+2020-04-05 15:10:09:044 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'2'sentences
+2020-04-05 15:10:09:046 INFO  WordDeleter:deleter:26 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-05 15:11:52:088 INFO  DelimiterImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-05 15:11:52:098 INFO  DelimiterImpl:wordMatcher:51 - '2' sentence was parsed into'27'elements
+2020-04-05 15:11:52:100 INFO  DelimiterImpl:wordMatcher:51 - '3' sentence was parsed into'9'elements
+2020-04-05 15:11:52:115 INFO  DelimiterImpl:wordMatcher:51 - '4' sentence was parsed into'9'elements
+2020-04-05 15:11:52:116 INFO  DelimiterImpl:wordMatcher:51 - '5' sentence was parsed into'2'elements
+2020-04-05 15:11:52:117 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'5'sentences
+2020-04-05 15:11:52:131 INFO  DelimiterImpl:wordMatcher:51 - '6' sentence was parsed into'5'elements
+2020-04-05 15:11:52:135 INFO  DelimiterImpl:wordMatcher:51 - '7' sentence was parsed into'27'elements
+2020-04-05 15:11:52:136 INFO  DelimiterImpl:wordMatcher:51 - '8' sentence was parsed into'9'elements
+2020-04-05 15:11:52:138 INFO  DelimiterImpl:wordMatcher:51 - '9' sentence was parsed into'9'elements
+2020-04-05 15:11:52:139 INFO  DelimiterImpl:wordMatcher:51 - '10' sentence was parsed into'2'elements
+2020-04-05 15:11:52:140 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'5'sentences

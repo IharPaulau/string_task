@@ -45,15 +45,13 @@ public class DelimiterImplTest {
     }
 
     public String combineElementsInSentence(TextComponent componentOfText) {
-        String str = "";
-        List<TextComponent> s = ((CompositeTextElements) componentOfText).getSingleLevelComponent();
-        for (int i = 0; i < s.size(); i++) {
-            str += ((MinTextElement) s.get(i)).getTextElement();
+        StringBuilder stringBuilder = new StringBuilder();
+        List<TextComponent> elements = ((CompositeTextElements) componentOfText).getSingleLevelComponent();
+        for (int i = 0; i < elements.size(); i++) {
+            stringBuilder.append(((MinTextElement) elements.get(i)).getTextElement());
         }
-        return str;
+        return stringBuilder.toString();
     }
-
-
 
 
 }
