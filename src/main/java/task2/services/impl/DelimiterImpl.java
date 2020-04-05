@@ -4,7 +4,7 @@ package task2.services.impl;
 import org.apache.log4j.Logger;
 import task2.models.CompositeTextElements;
 import task2.models.MinTextElement;
-import task2.services.ComponentOfText;
+import task2.models.TextComponent;
 import task2.services.Delimiter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,10 +19,10 @@ public class DelimiterImpl implements Delimiter {
     private static int sentenceCounter = 0;
 
     @Override
-    public ComponentOfText sentenceMatcher(ComponentOfText allText) {
+    public TextComponent sentenceMatcher(TextComponent allText) {
         Matcher matcher = Pattern.compile(REGEX_BY_SENTENCE).matcher(((CompositeTextElements) allText).getText());
         while (matcher.find()) {
-            ComponentOfText sentence = new CompositeTextElements();
+            TextComponent sentence = new CompositeTextElements();
             wordMatcher(sentence, matcher.group());
             ((CompositeTextElements) allText).add(sentence);
 
@@ -33,7 +33,7 @@ public class DelimiterImpl implements Delimiter {
     }
 
     @Override
-    public ComponentOfText wordMatcher(ComponentOfText sentence, String str) {
+    public TextComponent wordMatcher(TextComponent sentence, String str) {
         Matcher matcher = Pattern.compile(REGEX_BY_ANY_WORD_WITH_PUNCTUATION).matcher(str);
         while (matcher.find()) {
             String temporarilyStr = matcher.group();
@@ -55,10 +55,10 @@ public class DelimiterImpl implements Delimiter {
     }
 
     @Override
-    public ComponentOfText parser(ComponentOfText sentence, String str, String regexp) {
+    public TextComponent parser(TextComponent sentence, String str, String regexp) {
         Matcher matcher = Pattern.compile(regexp).matcher(str);
         while (matcher.find()) {
-            ComponentOfText word = new MinTextElement(matcher.group());
+            TextComponent word = new MinTextElement(matcher.group());
             ((CompositeTextElements) sentence).add(word);
         }
         return sentence;

@@ -1,9 +1,11 @@
 package task2.services;
 
+import task2.models.TextComponent;
+
 public interface Delimiter {
-    ComponentOfText sentenceMatcher(ComponentOfText allText);
+    TextComponent sentenceMatcher(TextComponent allText);
 
-    ComponentOfText wordMatcher(ComponentOfText sentence, String str);
+    TextComponent wordMatcher(TextComponent sentence, String str);
 
-    ComponentOfText parser(ComponentOfText sentence, String str, String regexp);
+    TextComponent parser(TextComponent sentence, String str, String regexp);
 }

@@ -1,0 +1,8 @@
+2020-04-05 15:04:39:914 INFO  FileReader:readFile:13 - text was read from file
+2020-04-05 15:04:39:985 INFO  DelimiterImpl:wordMatcher:51 - '1' sentence was parsed into'31'elements
+2020-04-05 15:04:39:989 INFO  DelimiterImpl:wordMatcher:51 - '2' sentence was parsed into'32'elements
+2020-04-05 15:04:39:993 INFO  DelimiterImpl:wordMatcher:51 - '3' sentence was parsed into'34'elements
+2020-04-05 15:04:39:999 INFO  DelimiterImpl:wordMatcher:51 - '4' sentence was parsed into'92'elements
+2020-04-05 15:04:40:003 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'4'sentences
+2020-04-05 15:04:40:010 INFO  WordDeleter:deleter:26 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-05 15:04:40:014 INFO  FileWriter:write:34 - the text was written to a 'result.txt' file

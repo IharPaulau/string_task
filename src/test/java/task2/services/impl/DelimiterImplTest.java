@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import task2.models.CompositeTextElements;
 import task2.models.MinTextElement;
-import task2.services.ComponentOfText;
+import task2.models.TextComponent;
 import task2.services.Delimiter;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DelimiterImplTest {
-    private ComponentOfText test_allText;
+    private TextComponent test_allText;
     private Delimiter test_delimiter;
 
     @Before
@@ -44,11 +44,11 @@ public class DelimiterImplTest {
                 combineElementsInSentence(((CompositeTextElements) test_allText).getSingleLevelComponent().get(3)));
     }
 
-    public String combineElementsInSentence(ComponentOfText componentOfText) {
+    public String combineElementsInSentence(TextComponent componentOfText) {
         String str = "";
-        List<ComponentOfText> s = ((CompositeTextElements) componentOfText).getSingleLevelComponent();
+        List<TextComponent> s = ((CompositeTextElements) componentOfText).getSingleLevelComponent();
         for (int i = 0; i < s.size(); i++) {
-            str += ((MinTextElement) s.get(i)).getStr();
+            str += ((MinTextElement) s.get(i)).getTextElement();
         }
         return str;
     }

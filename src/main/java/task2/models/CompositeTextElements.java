@@ -1,16 +1,13 @@
 package task2.models;
 
-import task2.services.ComponentOfText;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompositeTextElements implements ComponentOfText {
+public class CompositeTextElements implements TextComponent {
     private String text;
-    private List<ComponentOfText> singleLevelComponent = new ArrayList();
+    private List<TextComponent> singleLevelComponent = new ArrayList();
 
     public CompositeTextElements() {
-
     }
 
     public CompositeTextElements(String text) {
@@ -18,27 +15,23 @@ public class CompositeTextElements implements ComponentOfText {
     }
 
     public String getText() {
-
         return text;
     }
 
-    public List<ComponentOfText> getSingleLevelComponent() {
-
-        return this.singleLevelComponent;
+    public List<TextComponent> getSingleLevelComponent() {
+        return singleLevelComponent;
     }
 
-    public void add(ComponentOfText componentOfText) {
-
-        this.singleLevelComponent.add(componentOfText);
+    public void add(TextComponent componentOfText) {
+        singleLevelComponent.add(componentOfText);
     }
 
-    public void remove(ComponentOfText componentOfText) {
-
-        this.singleLevelComponent.remove(componentOfText);
+    public void remove(TextComponent componentOfText) {
+        singleLevelComponent.remove(componentOfText);
     }
 
     public void print() {
-        for (ComponentOfText componentOfText : singleLevelComponent) {
+        for (TextComponent componentOfText : singleLevelComponent) {
             componentOfText.print();
         }
     }
