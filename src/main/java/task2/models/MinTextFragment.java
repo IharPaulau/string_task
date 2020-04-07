@@ -1,11 +1,11 @@
 package task2.models;
 
 
-public class MinTextElement implements TextComponent {
+public class MinTextFragment implements TextComponent {
 
     private String textElement;
 
-    public MinTextElement(String str) {
+    public MinTextFragment(String str) {
         this.textElement = str;
     }
 
