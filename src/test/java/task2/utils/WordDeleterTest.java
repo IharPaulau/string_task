@@ -27,20 +27,18 @@ public class WordDeleterTest {
     @Test
     public void shouldBeHaveNoAnyWordStartingWithConsonantAndElevenLettersLong_afterRemovingSuchWords() {
         wordDeleter.deleter(test_parser.sentenceMatcher(test_highLevelTextFragments, test_text), 11);
-        textPicker();
-
-        assertEquals("первое . второе .", textPicker().toString());
+        textGluer();
+        assertEquals("первое . второе .", textGluer().toString());
     }
 
     @Test
     public void shouldBeHaveNoAnyWordStartingWithConsonantAndSixLettersLong_afterRemovingSuchWords() {
         wordDeleter.deleter(test_parser.sentenceMatcher(test_highLevelTextFragments, test_text), 6);
-        textPicker();
-
-        assertEquals(" предложение.  предложение.", textPicker().toString());
+        textGluer();
+        assertEquals(" предложение.  предложение.", textGluer().toString());
     }
 
-    private StringBuilder textPicker(){
+    private StringBuilder textGluer(){
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < ((CompositeTextFragments) test_highLevelTextFragments).getOneLevelFragments().size(); i++) {
             TextComponent sentence = ((CompositeTextFragments) test_highLevelTextFragments).getOneLevelFragments().get(i);
