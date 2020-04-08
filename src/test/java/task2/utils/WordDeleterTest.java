@@ -7,37 +7,48 @@ import task2.models.MinTextFragment;
 import task2.models.TextComponent;
 import task2.services.Parser;
 import task2.services.impl.ParserImpl;
-
+import task2.services.impl.DeleterConsonantWords;
 import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class WordDeleterTest {
-    private TextComponent test_allText;
+    private TextComponent test_highLevelTextFragments;
     private Parser test_parser;
-    private WordDeleter wordDeleter;
-    private String test_text = "первое предложение. " +
-            "второе предложение.";
-    private static final String ANY_ELEVEN_LETTER_WORD_STARTING_WITH_CONSONANT = "[^аеёиоуыэюяАЕЁИОУЫЭЮЯaeiouyAEIOUY\\s][a-zA-Zа-яА-Я]{10}";
+    private DeleterConsonantWords wordDeleter;
+    private String test_text = "первое предложение. второе предложение.";
 
     @Before
     public void init() {
-        test_allText = new CompositeTextFragments();
+        test_highLevelTextFragments = new CompositeTextFragments();
         test_parser = new ParserImpl();
-        wordDeleter = new WordDeleter();
+        wordDeleter = new DeleterConsonantWords();
     }
 
     @Test
     public void shouldBeHaveNoAnyWordStartingWithConsonantAndElevenLettersLong_afterRemovingSuchWords() {
-        wordDeleter.deleter(test_parser.sentenceMatcher(test_allText, test_text), ANY_ELEVEN_LETTER_WORD_STARTING_WITH_CONSONANT);
-        String stringAfterProcessing = "";
-        for (int i = 0; i < ((CompositeTextFragments) test_allText).getOneLevelFragments().size(); i++) {
-            TextComponent sentence = ((CompositeTextFragments) test_allText).getOneLevelFragments().get(i);
+        wordDeleter.deleter(test_parser.sentenceMatcher(test_highLevelTextFragments, test_text), 11);
+        textPicker();
+
+        assertEquals("первое . второе .", textPicker().toString());
+    }
+
+    @Test
+    public void shouldBeHaveNoAnyWordStartingWithConsonantAndSixLettersLong_afterRemovingSuchWords() {
+        wordDeleter.deleter(test_parser.sentenceMatcher(test_highLevelTextFragments, test_text), 6);
+        textPicker();
+
+        assertEquals(" предложение.  предложение.", textPicker().toString());
+    }
+
+    private StringBuilder textPicker(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < ((CompositeTextFragments) test_highLevelTextFragments).getOneLevelFragments().size(); i++) {
+            TextComponent sentence = ((CompositeTextFragments) test_highLevelTextFragments).getOneLevelFragments().get(i);
             List<TextComponent> elements = ((CompositeTextFragments) sentence).getOneLevelFragments();
-            for (int j = 0; j < elements.size(); j++) {
-                stringAfterProcessing += ((MinTextFragment) elements.get(j)).getTextElement();
+            for (TextComponent element : elements) {
+                stringBuilder.append(((MinTextFragment) element).getTextElement());
             }
         }
-        assertTrue(stringAfterProcessing.equals("первое . второе ."));
+        return stringBuilder;
     }
 }

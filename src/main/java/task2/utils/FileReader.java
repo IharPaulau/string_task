@@ -6,9 +6,13 @@ import org.apache.log4j.Logger;
 import java.io.*;
 import java.nio.charset.Charset;
 
-public class FileReader {
+public final class FileReader {
+
+    private FileReader() {
+    }
+
     private static final Logger LOGGER = Logger.getLogger(FileReader.class);
-    public String readFile(String fileLocation, String charFormat) {
+    public static String readFile(String fileLocation, String charFormat) {
         try {
             LOGGER.info("text was read from file");
             return FileUtils.readFileToString(new File(fileLocation), Charset.forName(charFormat));

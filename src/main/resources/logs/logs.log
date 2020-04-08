@@ -40,3 +40,51 @@
 2020-04-05 20:31:27:990 INFO  DelimiterImpl:wordMatcher:51 - '4' sentence was parsed into'9'elements
 2020-04-05 20:31:27:995 INFO  DelimiterImpl:wordMatcher:51 - '5' sentence was parsed into'2'elements
 2020-04-05 20:31:27:996 INFO  DelimiterImpl:sentenceMatcher:30 - the text was parsed into'5'sentences
+2020-04-08 14:50:44:659 INFO  FileReader:readFile:13 - text was read from file
+2020-04-08 14:50:44:731 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'31'elements
+2020-04-08 14:50:44:736 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'32'elements
+2020-04-08 14:50:44:741 INFO  ParserImpl:wordMatcher:51 - '3' sentence was parsed into'34'elements
+2020-04-08 14:50:44:748 INFO  ParserImpl:wordMatcher:51 - '4' sentence was parsed into'92'elements
+2020-04-08 14:50:44:751 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'4'sentences
+2020-04-08 14:50:44:762 INFO  WordDeleter:deleter:27 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 14:50:44:765 INFO  FileWriter:write:34 - the text was written to a 'result.txt' file
+2020-04-08 14:51:11:752 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-08 14:51:11:758 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'4'elements
+2020-04-08 14:51:11:759 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'2'sentences
+2020-04-08 14:51:11:761 INFO  WordDeleter:deleter:27 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 14:51:30:980 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-08 14:51:30:986 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'4'elements
+2020-04-08 14:51:30:986 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'2'sentences
+2020-04-08 14:51:30:991 INFO  WordDeleter:deleter:27 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 14:51:38:315 INFO  FileReader:readFile:13 - text was read from file
+2020-04-08 14:51:38:351 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'31'elements
+2020-04-08 14:51:38:368 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'32'elements
+2020-04-08 14:51:38:381 INFO  ParserImpl:wordMatcher:51 - '3' sentence was parsed into'34'elements
+2020-04-08 14:51:38:390 INFO  ParserImpl:wordMatcher:51 - '4' sentence was parsed into'92'elements
+2020-04-08 14:51:38:393 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'4'sentences
+2020-04-08 14:51:38:403 INFO  WordDeleter:deleter:27 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 14:51:38:413 INFO  FileWriter:write:34 - the text was written to a 'result.txt' file
+2020-04-08 14:59:07:563 INFO  FileReader:readFile:17 - text was read from file
+2020-04-08 14:59:07:601 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'31'elements
+2020-04-08 14:59:07:626 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'32'elements
+2020-04-08 14:59:07:629 INFO  ParserImpl:wordMatcher:51 - '3' sentence was parsed into'34'elements
+2020-04-08 14:59:07:640 INFO  ParserImpl:wordMatcher:51 - '4' sentence was parsed into'92'elements
+2020-04-08 14:59:07:644 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'4'sentences
+2020-04-08 14:59:07:649 INFO  WordDeleter:deleter:27 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 14:59:07:656 INFO  FileWriter:write:38 - the text was written to a 'result.txt' file
+2020-04-08 15:22:30:547 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-08 15:22:30:553 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'4'elements
+2020-04-08 15:22:30:554 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'2'sentences
+2020-04-08 15:22:30:556 INFO  WordDeleterImpl:deleter:32 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 15:25:04:629 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-08 15:25:04:636 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'4'elements
+2020-04-08 15:25:04:637 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'2'sentences
+2020-04-08 15:25:04:639 INFO  WordDeleterImpl:deleter:32 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 15:30:04:554 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-08 15:30:04:559 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'4'elements
+2020-04-08 15:30:04:562 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'2'sentences
+2020-04-08 15:30:04:567 INFO  WordDeleterImpl:deleter:32 - all words in parsed text starting with a consonant and eleven letters long was deleted
+2020-04-08 15:30:33:401 INFO  ParserImpl:wordMatcher:51 - '1' sentence was parsed into'5'elements
+2020-04-08 15:30:33:409 INFO  ParserImpl:wordMatcher:51 - '2' sentence was parsed into'4'elements
+2020-04-08 15:30:33:410 INFO  ParserImpl:sentenceMatcher:30 - the text was parsed into'2'sentences
+2020-04-08 15:30:33:412 INFO  WordDeleterImpl:deleter:32 - all words in parsed text starting with a consonant and eleven letters long was deleted

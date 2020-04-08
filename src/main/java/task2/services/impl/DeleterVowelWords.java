@@ -1,19 +1,25 @@
-package task2.utils;
+package task2.services.impl;
 
 import org.apache.log4j.Logger;
 import task2.models.CompositeTextFragments;
 import task2.models.MinTextFragment;
 import task2.models.TextComponent;
+import task2.services.WordDeleter;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
 
-public class WordDeleter {
-    private static final Logger LOGGER = Logger.getLogger(WordDeleter.class);
-//    private static final String ANY_ELEVEN_LETTER_WORD_STARTING_WITH_CONSONANT = "[^аеёиоуыэюяАЕЁИОУЫЭЮЯaeiouyAEIOUY\\s][a-zA-Zа-яА-Я]{10}";
+public class DeleterVowelWords implements WordDeleter {
+    private static final Logger LOGGER = Logger.getLogger(DeleterVowelWords.class);
+    private static final String ANY_ELEVEN_LETTER_WORD_STARTING_WITH_CONSONANT = "[^аеёиоуыэюяАЕЁИОУЫЭЮЯaeiouyAEIOUY\\s][a-zA-Zа-яА-Я]{%d}";
 
-    public TextComponent deleter(TextComponent allText, String regex) {
+    public TextComponent deleter(TextComponent allText, int length) {
+        if(length <= 0){
+            LOGGER.info("wrong length value - the word length for deletion cannot be less than or equal to zero");
+            return allText;
+        }
+        String regex = String.format(ANY_ELEVEN_LETTER_WORD_STARTING_WITH_CONSONANT, length-1);
         for (int i = 0; i < ((CompositeTextFragments)allText).getOneLevelFragments().size(); i++) {
             TextComponent sentence = ((CompositeTextFragments)allText).getOneLevelFragments().get(i);
             List<TextComponent> elements = ((CompositeTextFragments) sentence).getOneLevelFragments();

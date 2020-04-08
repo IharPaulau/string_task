@@ -12,12 +12,15 @@ import task2.models.MinTextFragment;
 import task2.models.TextComponent;
 
 
-public class FileWriter {
+public final class FileWriter {
     private static final Logger LOGGER = Logger.getLogger(FileWriter.class);
-    private StringBuilder stringBuilder = new StringBuilder();
-    private File file = new File("result.txt");
+    private static StringBuilder stringBuilder = new StringBuilder();
+    private static File file = new File("result.txt");
 
-    public void write(TextComponent allText) {
+    private FileWriter() {
+    }
+
+    public static void write(TextComponent allText) {
         for (int i = 0; i < ((CompositeTextFragments) allText).getOneLevelFragments().size(); i++) {
             TextComponent sentence = ((CompositeTextFragments) allText).getOneLevelFragments().get(i);
             List<TextComponent> elements = ((CompositeTextFragments) sentence).getOneLevelFragments();
@@ -25,7 +28,6 @@ public class FileWriter {
                 stringBuilder.append(((MinTextFragment) element ).getTextElement());
             }
         }
-
         try {
             FileUtils.writeStringToFile(file, stringBuilder.toString(), StandardCharsets.UTF_8.name());
         } catch (IOException e) {
