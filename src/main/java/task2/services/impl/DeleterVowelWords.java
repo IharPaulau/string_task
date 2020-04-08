@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 public class DeleterVowelWords implements WordDeleter {
     private static final Logger LOGGER = Logger.getLogger(DeleterVowelWords.class);
-    private static final String ANY_ELEVEN_LETTER_WORD_STARTING_WITH_CONSONANT = "[^аеёиоуыэюяАЕЁИОУЫЭЮЯaeiouyAEIOUY\\s][a-zA-Zа-яА-Я]{%d}";
+    private static final String ANY_ELEVEN_LETTER_WORD_STARTING_WITH_CONSONANT = "[аеёиоуыэюяАЕЁИОУЫЭЮЯaeiouyAEIOUY\\s][a-zA-Zа-яА-Я]{%d}";
 
     @Override
     public TextComponent deleter(TextComponent allText, int length) {
