@@ -11,7 +11,7 @@ import task2.services.Parser;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 public class ParserImplTest {
     private TextComponent test_allText;
@@ -32,7 +32,7 @@ public class ParserImplTest {
     @Test
     public void shouldBeExpectedNumberOfSentence_whenTextParsedIntoSentence() {
         test_parser.sentenceMatcher(test_allText, test_text);
-        assertTrue(((CompositeTextFragments) test_allText).getOneLevelFragments().size() == 5);
+        assertEquals(5, ((CompositeTextFragments) test_allText).getOneLevelFragments().size());
     }
 
     @Test
@@ -47,8 +47,8 @@ public class ParserImplTest {
     private String combineElementsInSentence(TextComponent componentOfText) {
         StringBuilder stringBuilder = new StringBuilder();
         List<TextComponent> elements = ((CompositeTextFragments) componentOfText).getOneLevelFragments();
-        for (int i = 0; i < elements.size(); i++) {
-            stringBuilder.append(((MinTextFragment) elements.get(i)).getTextElement());
+        for (TextComponent element : elements) {
+            stringBuilder.append(((MinTextFragment) element).getTextElement());
         }
         return stringBuilder.toString();
     }
